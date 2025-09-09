@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <title>Quickbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body class="{{ default_theme }}-mode">
+    
+    <div class="top-bar">
+        <h1>{{ t.file_manager }}</h1>
+    </div>
+
+    <div class="form-container">
+        <!-- Upload via JS button -->
+        <input type="file" id="fileInput" multiple>
+        <button type="button" id="uploadBtn">{{ t.upload }}</button>
+
+        {% if enable_create_folder %}
+        <form method="post" action="/create_folder" style="display:inline-block; margin-left: 20px;">
+            <input type="text" name="folder_name" placeholder="{{ t.new_folder }}" required>
+            <input type="hidden" name="current_path" value="{{ current_path }}">
+            <input type="submit" value="{{ t.create }}">
+        </form>
+        {% endif %}
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        {{ t.path }} <a href="{{ url_for('index') }}">home</a>
+        {% set parts = current_path.replace('\\','/').split('/') %}
+        {% for i in range(parts|length) %}
+            {% set folder = parts[i] %}
+            {% if folder %}
+                / 
+                <a href="{{ url_for('index', path='/'.join(parts[:i+1])) }}">{{ folder }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <table>
+        <tr>
+            <th>{{ t.name }}</th>
+            <th>{{ t.size }}</th>
+            <th>{{ t.type }}</th>
+            <th>{{ t.modified }}</th>
+        </tr>
+
+        {% if current_path %}
+        <tr>
+            <td class="folder"><a href="{{ url_for('index', path=parent_path) }}">.. ({{ t.parent_directory }})</a></td>
+            <td>-</td>
+            <td>{{ t.folder }}</td>
+            <td>-</td>
+        </tr>
+        {% endif %}
+
+        {% for item in items %}
+        <tr>
+            {% if item.is_dir %}
+            <td class="folder"><a href="{{ url_for('index', path=item.rel_path) }}">{{ item.name }}</a></td>
+            <td>-</td>
+            <td>{{ t.folder }}</td>
+            <td>{{ item.mtime }}</td>
+            {% else %}
+            <td class="file"><a href="{{ url_for('download_file', filename=item.rel_path) }}">{{ item.name }}</a></td>
+            <td>{{ item.size }}</td>
+            <td>{{ item.ext.lower() }}</td>
+            <td>{{ item.mtime }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <footer>
+         <a href="https://github.com/PericlesSavio/Quickbox" target="_blank">Project GitHub</a>
+    </footer>
+
+    {% if enable_drag_drop %}
+    <div id="dragOverlayMessage">{{ t.drag_drop }}</div>
+    {% endif %}
+
+    <!-- Modal -->
+    <div id="overwriteModal">
+        <div class="modal-content">
+            <p id="overwriteMessage"></p>
+            <button onclick="handleOverwrite(true)" id="overwriteYes">{{ t.yes }}</button>
+            <button onclick="handleOverwrite(false)" id="overwriteNo">{{ t.no }}</button>
+        </div>
+    </div>
+
+    <!-- Data for JS via data-attributes -->
+    <div id="templateData"
+         data-texts='{{ t|tojson|safe }}'
+         data-current-path='{{ current_path|tojson|safe }}'
+         data-enable-drag-drop='{{ enable_drag_drop|tojson|safe }}'
+         style="display:none"></div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

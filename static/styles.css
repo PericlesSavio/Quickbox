@@ -1,0 +1,152 @@
+/* --- Global --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #1e1e1e;  /* dark default */
+    color: #e0e0e0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1 { 
+    color: #f0f0f0; 
+    margin: 0; 
+    display: inline-block; 
+}
+
+.top-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 8px;
+    text-align: left;
+}
+
+th { background-color: #3c3c3c; }
+tr:hover { background-color: #444; }
+
+a { text-decoration: none; color: #4ea1f3; }
+a:hover { text-decoration: underline; }
+
+.folder::before { content: "📁 "; }
+.file::before { content: "📄 "; }
+
+.form-container { margin-bottom: 20px; }
+.form-container, h2 { width: 100%; margin: 0 auto 20px auto; }
+
+input[type=text], input[type=file] { 
+    padding: 5px; 
+    background: #2b2b2b; 
+    color: #e0e0e0; 
+    border: 1px solid #555; 
+}
+
+input[type=submit] { padding: 5px 10px; cursor: pointer; }
+
+
+/* Breadcrumb */
+.breadcrumb { font-size: 0.9em; margin-bottom: 10px; color: #ccc; }
+.breadcrumb a { color: #4ea1f3; text-decoration: none; font-size: 1.2em; margin-right: 4px; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #888;
+}
+footer a { color: #4ea1f3; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+
+/* Modal */
+#overwriteModal {
+    display:none;
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    justify-content:center; align-items:center;
+    z-index:1000;
+}
+#overwriteModal .modal-content {
+    background:#fff; color:#000;
+    padding:20px; border-radius:8px;
+    max-width:400px; text-align:center;
+}
+#overwriteModal button { padding:5px 15px; margin: 5px; cursor: pointer; }
+
+
+/* Drag & Drop Overlay */
+#dragOverlayMessage {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    color: #fff; font-size: 2em;
+    justify-content: center; align-items: center;
+    text-align: center; z-index: 999;
+    pointer-events: none;
+}
+
+
+/* --- Themes --- */
+
+/* Dark Mode (padrão) */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+body.dark-mode h1 { color: #f0f0f0; }
+body.dark-mode table { background-color: #2b2b2b; border-color: #444; }
+body.dark-mode th { background-color: #3c3c3c; color: #fff; }
+body.dark-mode tr:hover { background-color: #444; }
+body.dark-mode td { color: #e0e0e0; }
+body.dark-mode input[type=text], body.dark-mode input[type=file] { background: #2b2b2b; color: #e0e0e0; border: 1px solid #555; }
+body.dark-mode a { color: #4ea1f3; }
+body.dark-mode footer { color: #888; }
+body.dark-mode footer a { color: #4ea1f3; }
+
+
+/* Light Mode */
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #1e1e1e;
+}
+body.light-mode h1 { color: #1e1e1e; }
+body.light-mode table { background-color: #ffffff; border-color: #ccc; }
+body.light-mode th { background-color: #eee; color: #1e1e1e; }
+body.light-mode tr:hover { background-color: #f1f1f1; }
+body.light-mode td { color: #1e1e1e; }
+body.light-mode input[type=text], body.light-mode input[type=file] { background: #fff; color: #1e1e1e; border: 1px solid #ccc; }
+body.light-mode a { color: #007bff; }
+body.light-mode footer { color: #555; }
+body.light-mode footer a { color: #007bff; }
+
+
+/* Blue Mode */
+body.blue-mode {
+    background-color: #0b1f3a;
+    color: #a0c4ff;
+}
+body.blue-mode h1 { color: #a0c4ff; }
+body.blue-mode table { background-color: #112b4a; border-color: #3399ff; }
+body.blue-mode th { background-color: #1a3b66; color: #d0e7ff; }
+body.blue-mode tr:hover { background-color: #1f456e; }
+body.blue-mode td { color: #a0c4ff; }
+body.blue-mode input[type=text], 
+body.blue-mode input[type=file] { background: #112b4a; color: #a0c4ff; border: 1px solid #3399ff; }
+body.blue-mode a { color: #66b3ff; }
+body.blue-mode footer { color: #a0c4ff; }
+body.blue-mode footer a { color: #66b3ff; }
