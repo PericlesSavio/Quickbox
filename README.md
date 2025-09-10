@@ -46,17 +46,12 @@ http://localhost:5000
 docker build -t quickbox .
 ```
 
-2. Run the container:
+2. Build the image and start the container:
 ```bash
-docker run -p 5000:5000 quickbox
+docker compose up --build
 ```
 
-3. Using docker-compose:
-```bash
-docker-compose up --build
-```
-
-4. Access in your browser:
+3. Access in your browser:
 ```bash
 http://localhost:5000
 ```

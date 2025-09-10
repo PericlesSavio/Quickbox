@@ -3,6 +3,8 @@ version: '3.8'
 services:
   quickbox:
     build: .
+    image: quickbox
+    container_name: quickbox
     ports:
       - "5000:5000"
     volumes:
