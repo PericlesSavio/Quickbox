@@ -11,6 +11,12 @@ Simple web-based file manager built with Flask. Supports uploads, folder creatio
 - Theme support
 
 
+## Screenshots
+[<img src="/screenshots/dark_mode.png" alt="Dark mode" width="300"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/dark_mode.png)
+[<img src="/screenshots/light_mode.png" alt="Light mode" width="300"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/light_mode.png)
+[<img src="/screenshots/blue_mode.png" alt="Blue mode" width="300"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/blue_mode.png)
+
+
 ## Installation
 1. Clone the repository:
 ```bash
@@ -55,8 +61,12 @@ docker-compose up --build
 http://localhost:5000
 ```
 
+
 ## TODO List
 - [ ] Add support for excluding files/folders
+- [ ] Add support for adding folders with files using drag and drop
+- [ ] Fix drag-and-drop fetch bug
+
 
 ## License
 This project is licensed under the **GPL-3.0 License**. See the [LICENSE](https://github.com/PericlesSavio/Quickbox?tab=GPL-3.0-1-ov-file) file for details.
