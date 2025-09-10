@@ -1,6 +1,6 @@
 # Quickbox
 
-**Version:** 1.0.0
+**Version:** 1.0.2
 
 Simple web-based file manager built with Flask. Supports uploads, folder creation, multilingual interface, and theming.
 
@@ -12,9 +12,9 @@ Simple web-based file manager built with Flask. Supports uploads, folder creatio
 
 
 ## Screenshots
-[<img src="/screenshots/dark_mode.png" alt="Dark mode" width="300"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/dark_mode.png)
-[<img src="/screenshots/light_mode.png" alt="Light mode" width="300"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/light_mode.png)
-[<img src="/screenshots/blue_mode.png" alt="Blue mode" width="300"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/blue_mode.png)
+[<img src="/screenshots/dark_mode.png" alt="Dark mode" width="280"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/dark_mode.png)
+[<img src="/screenshots/light_mode.png" alt="Light mode" width="280"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/light_mode.png)
+[<img src="/screenshots/blue_mode.png" alt="Blue mode" width="280"/>](https://github.com/PericlesSavio/Quickbox/blob/main/screenshots/blue_mode.png)
 
 
 ## Installation
